@@ -1,0 +1,99 @@
+.container__inner {
+    height: 51.2rem;
+    width: 51.2rem;
+    background-color: var(--white);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.darkContainer__inner {
+    height: 51.2rem;
+    width: 51.2rem;
+    background-color: var(--black);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: #f5f5f5;
+}
+
+.toggleMode {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+.darkToggleMode {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.head__title {
+    font-size: 5em;
+    margin-bottom: 2rem;
+}
+
+.head__description {
+    font-size: 2em;
+    max-width: 35rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.boxes {
+    display: grid;
+    grid: 1fr 1fr / repeat(5, 5.5rem);
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.box {
+    height: 5.5rem;
+    width: 5.5rem;
+    background-color: #fff;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.darkBox {
+    height: 5.5rem;
+    width: 5.5rem;
+    background-color: #252525;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.button__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    padding: 1.5rem 6rem;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: var(--blue);
+    color: #fff;
+    height: 100%;
+    font-size: 2.5em;
+}
