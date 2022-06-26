@@ -1,8 +1,9 @@
 import React from "react";
+import "./Die.css";
 
 const Die = (props) => {
     const styles = {
-        backgroundColor: props.isHeld ? "#59E391" : "#fff",
+        backgroundColor: props.isHeld ? "var(--green)" : "var(--white)",
     };
 
     return (

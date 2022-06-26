@@ -2,10 +2,12 @@ import React from "react";
 import Die from "./components/Die";
 import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
+import "./App.css";
 
 const App = () => {
     const [dice, setDice] = React.useState(allNewDice());
     const [tenzies, setTenzies] = React.useState(false);
+    const [darkMode, setDarkMode] = React.useState(false);
 
     React.useEffect(() => {
         const allHeld = dice.every((die) => die.isHeld);
@@ -17,6 +19,10 @@ const App = () => {
         }
     }, [dice]);
 
+    function toggleDarkMode() {
+        setDarkMode((oldMode) => !oldMode);
+    }
+
     function generateNewDie() {
         return {
             id: nanoid(),
@@ -25,7 +31,7 @@ const App = () => {
         };
     }
 
-    const reRoll = () => {
+    function reRoll() {
         if (!tenzies) {
             setDice((oldDice) =>
                 oldDice.map((die) => {
@@ -36,7 +42,7 @@ const App = () => {
             setTenzies(false);
             setDice(allNewDice());
         }
-    };
+    }
 
     function allNewDice() {
         const newDice = [];
@@ -61,19 +67,36 @@ const App = () => {
             key={die.id}
             isHeld={die.isHeld}
             handleClick={() => holdDice(die.id)}
+            darkMode={darkMode}
         />
     ));
 
     return (
-        <main>
-            {tenzies && <Confetti />}
-            <h1 className="title">Tenzies</h1>
-            <p className="instructions">
+        <main className={darkMode ? "darkMain" : "main"}>
+            <button
+                className={darkMode ? "dark-mode" : "light-mode"}
+                onClick={toggleDarkMode}
+            >
+                {darkMode ? "🌞" : "🌑"}
+            </button>
+            {tenzies && (
+                <Confetti
+                    height="400px"
+                    width="438.39px"
+                    gravity={0.03}
+                    numberOfPieces={350}
+                    recycle={false}
+                />
+            )}
+            <h1 className={darkMode ? "darkTitle" : "title"}>Tenzies</h1>
+            <p className={darkMode ? "darkInstructions" : "instructions"}>
                 Roll until all dice are the same. Click each die to freeze it at
                 its current value between rolls.
             </p>
-            <div className="dice__container">{diceElements}</div>
-            <button onClick={reRoll}>{tenzies ? "New Game" : "Roll"}</button>
+            <div className="dice">{diceElements}</div>
+            <button className={darkMode ? "roll" : "darkRoll"} onClick={reRoll}>
+                {tenzies ? "New Game" : "Roll"}
+            </button>
         </main>
     );
 };
