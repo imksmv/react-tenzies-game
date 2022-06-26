@@ -1,7 +1,7 @@
 .main {
-    background-color: #f5f5f5;
+    background-color: var(--light);
     height: 25rem;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 1.2rem;
     display: flex;
     flex-direction: column;
@@ -11,9 +11,9 @@
 }
 
 .darkMain {
-    background-color: #222222;
+    background-color: var(--dark);
     height: 25rem;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 1.2rem;
     display: flex;
     flex-direction: column;
@@ -49,24 +49,26 @@
 .title {
     color: var(--black);
     margin-bottom: 1.2rem;
+    font-size: 1.8em;
 }
 
 .darkTitle {
     color: var(--white);
     margin-bottom: 1.2rem;
+    font-size: 1.8em;
 }
 
 .instructions {
     max-width: 25rem;
     text-align: center;
-    color: #000;
+    color: var(--black);
     margin-bottom: 2rem;
 }
 
 .darkInstructions {
     max-width: 25rem;
     text-align: center;
-    color: #fff;
+    color: var(--white);
     margin-bottom: 2rem;
 }
 
@@ -77,7 +79,7 @@
     background-color: var(--orange);
     font-size: 1.3em;
     border-radius: 20px;
-    color: #fff;
+    color: var(--black);
 }
 
 .darkRoll {
@@ -87,7 +89,7 @@
     background-color: var(--orange);
     font-size: 1.3em;
     border-radius: 20px;
-    color: #000;
+    color: var(--white);
 }
 
 .roll:active {

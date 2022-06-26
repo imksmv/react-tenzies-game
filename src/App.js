@@ -94,7 +94,7 @@ const App = () => {
                 its current value between rolls.
             </p>
             <div className="dice">{diceElements}</div>
-            <button className={darkMode ? "roll" : "darkRoll"} onClick={reRoll}>
+            <button className={darkMode ? "darkRoll" : "roll"} onClick={reRoll}>
                 {tenzies ? "New Game" : "Roll"}
             </button>
         </main>

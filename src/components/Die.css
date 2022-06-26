@@ -8,14 +8,53 @@
 .die__face {
     height: 3rem;
     width: 3rem;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
 }
 
-.die__num {
-    font-size: 2rem;
+.dice__pattern {
+    height: 100%;
+    padding: 0.25rem;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid:
+        "a b c" 1fr
+        "d e f" 1fr
+        "g h i" 1fr / 1fr 1fr 1fr;
+}
+
+.die__dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: var(--orange);
+}
+.die__dot--1 {
+    grid-area: a;
+}
+.die__dot--2 {
+    grid-area: b;
+}
+.die__dot--3 {
+    grid-area: c;
+}
+.die__dot--4 {
+    grid-area: d;
+}
+.die__dot--5 {
+    grid-area: e;
+}
+.die__dot--6 {
+    grid-area: f;
+}
+.die__dot--7 {
+    grid-area: g;
+}
+.die__dot--8 {
+    grid-area: h;
+}
+.die__dot--9 {
+    grid-area: i;
 }
