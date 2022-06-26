@@ -8,6 +8,7 @@ const App = () => {
     const [dice, setDice] = React.useState(allNewDice());
     const [tenzies, setTenzies] = React.useState(false);
     const [darkMode, setDarkMode] = React.useState(false);
+    const [numClicked, setNumClicked] = React.useState(0);
 
     React.useEffect(() => {
         const allHeld = dice.every((die) => die.isHeld);
@@ -15,9 +16,12 @@ const App = () => {
         const allSameValue = dice.every((die) => die.value === firstNum);
         if (allHeld && allSameValue) {
             setTenzies(true);
-            console.log("Hell Yeah!");
         }
     }, [dice]);
+
+    const styles = {
+        color: tenzies ? "var(--green)" : "",
+    };
 
     function toggleDarkMode() {
         setDarkMode((oldMode) => !oldMode);
@@ -41,6 +45,7 @@ const App = () => {
         } else {
             setTenzies(false);
             setDice(allNewDice());
+            setNumClicked(0);
         }
     }
 
@@ -59,6 +64,7 @@ const App = () => {
                 return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
             })
         );
+        setNumClicked((oldNumber) => oldNumber + 1);
     }
 
     const diceElements = dice.map((die) => (
@@ -94,9 +100,24 @@ const App = () => {
                 its current value between rolls.
             </p>
             <div className="dice">{diceElements}</div>
-            <button className={darkMode ? "darkRoll" : "roll"} onClick={reRoll}>
-                {tenzies ? "New Game" : "Roll"}
-            </button>
+            <div className={darkMode ? "darkButtonAside" : "buttonAside"}>
+                <button
+                    className={darkMode ? "darkRoll" : "roll"}
+                    onClick={reRoll}
+                >
+                    {tenzies ? "New Game" : "Roll"}
+                </button>
+                <div className="stats">
+                    <span className="timesClicked">Time:</span>
+                    <span className="numRolls">
+                        Number of rolls:
+                        <span className="numRolls__number" style={styles}>
+                            {" "}
+                            {numClicked}
+                        </span>
+                    </span>
+                </div>
+            </div>
         </main>
     );
 };
