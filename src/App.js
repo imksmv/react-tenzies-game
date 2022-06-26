@@ -42,6 +42,7 @@ const App = () => {
                     return die.isHeld ? die : generateNewDie();
                 })
             );
+            setNumClicked((oldNumber) => oldNumber + 1);
         } else {
             setTenzies(false);
             setDice(allNewDice());
@@ -59,12 +60,18 @@ const App = () => {
     }
 
     function holdDice(id) {
-        setDice((oldDice) =>
-            oldDice.map((die) => {
-                return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
-            })
-        );
-        setNumClicked((oldNumber) => oldNumber + 1);
+        if (!tenzies) {
+            setDice((oldDice) =>
+                oldDice.map((die) => {
+                    return die.id === id
+                        ? { ...die, isHeld: !die.isHeld }
+                        : die;
+                })
+            );
+            setNumClicked((oldNumber) => oldNumber + 1);
+        } else {
+            return;
+        }
     }
 
     const diceElements = dice.map((die) => (
@@ -88,9 +95,9 @@ const App = () => {
             {tenzies && (
                 <Confetti
                     height="400px"
-                    width="438.39px"
+                    width="390.39px"
                     gravity={0.03}
-                    numberOfPieces={350}
+                    numberOfPieces={500}
                     recycle={false}
                 />
             )}
