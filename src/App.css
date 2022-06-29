@@ -1,9 +1,9 @@
 .main {
     background-color: var(--light);
-    height: 25rem;
+    height: 28rem;
     border-radius: 8px;
-    padding: 1.2rem;
     display: flex;
+    padding: 0 1.2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -12,10 +12,10 @@
 
 .darkMain {
     background-color: var(--dark);
-    height: 25rem;
-    border-radius: 15px;
-    padding: 1.2rem;
+    height: 28rem;
+    border-radius: 8px;
     display: flex;
+    padding: 0 1.2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -62,14 +62,14 @@
     max-width: 22rem;
     text-align: center;
     color: var(--black);
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
 }
 
 .darkInstructions {
     max-width: 22rem;
     text-align: center;
     color: var(--white);
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
 }
 
 .roll {
@@ -129,16 +129,17 @@
 .stats {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 .numRolls__number {
     position: absolute;
     padding-left: 5px;
 }
-.darkNumRolls {
-    color: var(--white);
-}
 
-.darkNumRolls__number {
-    color: var(--white);
+.time {
+    padding-bottom: 0.8rem;
+}
+.numRolls {
+    padding-bottom: 0.8rem;
 }
